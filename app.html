@@ -1,0 +1,714 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/iansui@latest/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+
+    @theme {
+        --color-pri: #1985a1;
+        --color-sec: #3A798E;
+        --color-lightback: #CDD1D9;
+        --color-darkback: #EDEDEE;
+        --color-title: #2689D1;
+        --color-content: #46494c;
+        --font-iansui: 'Iansui', ui-sans-serif, system-ui, sans-serif;
+    }
+    body{
+        font-family: var(--font-iansui);
+    }
+    </style>
+    <script>
+        
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start'      
+                });
+            }
+        }
+    </script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dashBoard = document.getElementById('dashBoard');
+
+    if (dashBoard) {
+        function createGameButton(currentCount = 1) {
+                const randBut = document.createElement("button");
+                const butContent = document.createTextNode("*");
+                randBut.appendChild(butContent); 
+
+                randBut.count = currentCount;
+                
+                randBut.style.top = `${Math.floor(Math.random() * 80) + 10}%`;
+                randBut.style.right = `${Math.floor(Math.random() * 80) + 10}%`;
+
+                randBut.classList.add(
+                    'border','border-title','border-3','bg-pri', 'rounded-xl', 'text-xs', 'pt-1',"px-3", 'text-darkback', 'cursor-pointer',
+                    'hover:bg-sec','hover:bg-pri',
+                    'absolute'
+                );
+                
+                randBut.onclick = function() {
+                    
+                    alert("？".repeat(randBut.count));
+                    this.remove();
+                    createGameButton(randBut.count + 1); 
+                };
+
+                dashBoard.appendChild(randBut);
+            }
+
+            // 初始第一個按鈕是 1 個問號
+            createGameButton(1);
+        }
+    });
+
+    </script>
+  </head>
+  <body >
+    <div class="h-full bg-darkback flex flex-row relative">       
+        <!-- menu --> 
+        <div class="w-2/12 mx-6">
+            <div class="sticky top-1/12 z-50 bg-lightback  p-3 rounded-xl shadow-lg ">
+                <div class="w-48  rounded-full aspect-1/1 p-1.5 bg-cover bg-center object-cover bg-[url('https://pub-0cf851a23129475fbaf2941d7f04b0bd.r2.dev/blogstore/1779435944108~2.jpg')]" title="找不到更棒的照片了，不過看起來很像很冷。"></div>  
+                <h3 class=" text-content text-xl font-bold my-3 ">
+                    唐祥豪 nico
+                </h3>
+                <p class="text-content ">
+                    沒什麼，只是一個很愛打電動的人。
+                </p>
+                <p class="text-content ">
+                    (但很久沒開Steam)
+                </p>
+                
+            </div>
+            <div class="sticky top-4/12 z-50 bg-lightback  p-3 rounded-xl shadow-lg ">
+                <h3 class=" text-sec text-xl font-bold mb-4 ">
+                    索引選單:
+                </h3>
+                <ul class="list-disc list-inside text-content space-y-2">
+                    <li >
+                        <a href="javascript:void(0)" onclick="scrollToElement('01')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            個人簡介和申請動機。
+                        </a>
+                        <ul class="list-none list-inside text-content space-y-1 pl-4 mt-1 text-md">
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('01-1')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 個人簡介
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('01-2')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 申請動機
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('02')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            曾經做過哪些軟體工程技術相關的學習？
+                        </a>
+                        <ul class="list-none list-inside text-content space-y-1 pl-4 mt-1 text-md">
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('02-1')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 學習經歷
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('02-2')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 近期較完整的專案
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('03')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            如果參與這個訓練，會怎麼安排學習時間？
+                        </a>
+                        <ul class="list-none list-inside text-content space-y-1 pl-4 mt-1 text-md">
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('03-1')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 規劃表
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('03-2')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 每周的規劃
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('04')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            請簡述對於軟體工程的領域偏好和職涯想像。
+                        </a>
+                        <ul class="list-none list-inside text-content space-y-1 pl-4 mt-1 text-md">
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('04-1')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 領域偏好
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('04-2')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 職涯想像
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('05')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            請描述一件產生明顯負面情緒的經歷，如何處理該情緒？
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('06')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            關於這份申請網頁，分享一個開發時的技術心得。
+                        </a>
+                        
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('07')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            如何看待人工智慧的發展對軟體工程師的影響？
+                        </a>
+                        <ul class="list-none list-inside text-content space-y-1 pl-4 mt-1 text-md">
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('07-1')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 職業範疇
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('07-2')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 技術範疇
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('07-3')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 產品範疇
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" onclick="scrollToElement('07-4')" class=" hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                                    └ 總結
+                                </a>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="scrollToElement('08')" class="hover:bg-sky-50 hover:text-pri active:bg-sky-200">
+                            其他想要對我們說的事情？
+                        </a>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- main -->
+        <div class="flex flex-col gap-y-3 justify-center items-center w-8/12 m-4">
+            <!-- 個人簡介和申請動機。 -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="01" class="text-title text-4xl font-medium ">
+                        個人簡介和申請動機
+                    </h1>
+                </div>
+
+                <div class="my-4">
+                    <h2 id="01-1" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        個人簡介
+                    </h2>
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                        我是唐祥豪，現年26歲，目前就職於家中的夜市燒烤攤位。
+                        大學所就讀於台北商業大學的設計科系。
+                        自畢業當兵後因為家庭因素便在家中協助工作，因此也離相關科系越走越遠。
+                        出社會後，我便在工作之餘，玩票性質的學習了幾項工具與語言。
+                        每天多少會抓幾個小時學習自己感興趣的項目。
+                        </p>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <h2 id="01-2" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        申請動機
+                    </h2>
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                        曾經參加過資展國際(資策會)所提供的課程並順利結業，因為當時不夠成熟，且對我來說有嚴重的「不踏實、嚴謹感，
+                        讓我對求職這一件事感到卻步。
+                        之所以想要再次申請類似訓練，
+                        除了想要再一次地確認自己的技術是否能夠銜接上職場需求，也希望並盡可能的接觸軟體工程領域，更換人生跑道。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <!-- 曾經做過哪些軟體工程技術相關的學習？若有作品請分享給我們。 -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-8 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="02" class="text-title text-4xl font-medium ">
+                        曾經做過哪些軟體工程技術相關的學習？
+                    </h1>
+                </div>
+                <div class="my-4">
+                    <h2 id="02-1" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        學習經歷
+                    </h2>
+                    <div class="p-1 flex flex-col gap-y-4">
+                        <p class="text-content indent-8 break-normal">
+                        除了資展國際課程(vue,asp.net)所教，我個人也喜歡到處學習新框架(svelte、react)。在這之外因為喜歡遊戲的因素，也體驗過幾個遊戲引擎(godot、Unity)。在自學前端的過程中，我主要的流程都是先從我想做什麼東西開始。確認需求後便直接開專案實作。很少特地做練習某一塊功能(EX：ORM、cloudflare部署、tailwind排版樣式)等等。大多是如果遇到問題再查doc。
+                        </p>
+                        <div>
+                        <h3 class="text-sec text-xl font-bold">
+                            自己專案的學習、實作流程：
+                        </h3>
+                        <ul class="list-decimal list-inside text-content space-y-2">
+                            <li>列出我想製作項目的需求、畫面大概的模樣。</li>
+                            <li>設計初期資料內容(drizzle的schema、json的結構、ts類型等等)。</li>
+                            <li>與AI探討我所列出功能的需會需要什麼插件、在進而決定使用的框架。</li>
+                            <li>接著在讀完框架的doc後，開啟專案加入UI。</li>
+                            <li>建構好網站的大架構、逐步先將功能加入。</li>
+                            <li>這時候我才會將要用到的插件加入專案，加入後閱讀DOC中的quickstar等快速介紹後。後開始實作。</li>
+                            <li>實作的過程遇到問題或者複雜的操作，先回頭查看doc。如果依舊卡住，再去詢問claude、gemini等工具找解答。</li>
+                            <li>反覆執行直到將專案完成為止。</li>
+                        </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="my-4">
+                    <h2 id="02-2" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        近期較完整的專案：
+                    </h2>
+                    <div class="p-1 flex flex-col gap-y-4">
+                        <div class="p-1 flex flex-col gap-y-2">
+                            <div class="p-1 flex flex-col gap-y-2">
+                                <h3 class="text-sec text-xl font-bold flex items-center gap-x-1">
+                                    <a class="cursor-pointer" href="https://blog-5po.pages.dev"> 簡易blog：</a>
+                                    <a class="cursor-pointer" href="https://github.com/TangHao0724/blog/">
+                                        <img class="w-6 inline-block" src="https://img.icons8.com/?size=100&id=h52xAZuZ6MtK&format=png&color=000000" alt="到 bloggithub" />
+                                    </a>
+                                </h3>
+                                <img class=" inline-block" src="https://pub-0cf851a23129475fbaf2941d7f04b0bd.r2.dev/blogstore/blog.png" alt="blog" />
+                                <p class="text-content indent-8 break-normal">
+                                    這是我自己寫的blog。框架是使用svelte-kit，ORM使用 drizzle UI使用Tailwind + DaisyUI ，。資料、圖片是使用cloudflare D1、R2儲存。並且網站以cloudflare pages 架設。(未來需要時可以設置網域。)
+                                </p>
+                                <table class="border-collapse border table-auto mt-3 ">
+                                    <thead>
+                                        <tr>
+                                            <th class="border p-1 w-1/4 ">功能</th>
+                                            <th class="border p-1 w-3/4 ">應用工具</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1 ">框架</td>
+                                            <td class="border p-1 ">svelte-kit</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1 ">ORM</td>
+                                            <td class="border p-1 ">drizzle</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1 ">UI</td>
+                                            <td class="border p-1 ">Tailwind + DaisyUI</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1">資料</td>
+                                            <td class="border p-1">cloudflare D1(SQLite)、R2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-1 flex flex-col gap-y-2">
+                                <h3 class="text-content text-lg font-bold">
+                                    構想與操作流程：
+                                </h3>
+                                <p class="text-content indent-8 break-normal">
+                                文章的上傳則是透過網站的 api 透過 obsidian 的 quickadd(插件) 呼叫網頁呼叫api，api 參數透過 Metadata menu(插件) 管理文章的資訊、參數等。接著透過 pages 連接d1資料庫，將文章內容送到pages。再用 marked 將 MarkedDown 轉為 html 顯示。而圖片則是在 obsidian 編輯時以 picGo 上傳 R2 獲得連結。當文章上傳時檢查網址將它儲存至D1伺服器(未來若是新增功能或者重複調用時可以使用)。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-1 flex flex-col gap-y-2">
+                            <div class="p-1 flex flex-col gap-y-2">
+                                <h3 class="text-sec text-xl font-bold flex items-center gap-x-1">
+                                    <a class="cursor-pointer" href="https://tanghao0724.github.io/podo/"> podo(todolist+計時)：</a>
+                                    <a class="cursor-pointer" href="https://github.com/TangHao0724/podo">
+                                        <img class="w-6 inline-block" src="https://img.icons8.com/?size=100&id=h52xAZuZ6MtK&format=png&color=000000" alt="到 podogithub" />
+                                    </a>
+                                </h3>
+                                <img class=" inline-block" src="https://pub-0cf851a23129475fbaf2941d7f04b0bd.r2.dev/blogstore/podo.png" alt="podo" />
+                                <p class="text-content indent-8 break-normal">
+                                    這是用來督促自己工作、學習react的小工具，結合番茄鐘以及todolist的功能。讓排程可以一目了然。
+                                </p>
+                                <table class="border-collapse border table-auto mt-3 ">
+                                    <thead>
+                                        <tr>
+                                            <th class="border p-1 w-1/4 ">功能</th>
+                                            <th class="border p-1 w-3/4 ">應用工具</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1 ">框架</td>
+                                            <td class="border p-1 ">react+zustand</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1 ">UI</td>
+                                            <td class="border p-1 ">Tailwind + shadcn</td>
+                                        </tr>
+                                        <tr class="hover:bg-gray-50/50" >
+                                            <td class="border p-1">資料</td>
+                                            <td class="border p-1">json 存入 localStorage</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="p-1 flex flex-col gap-y-2">
+                                <h3 class="text-content text-lg font-bold">
+                                    構想與操作流程：
+                                </h3>
+                                <p class="text-content indent-8 break-normal">
+                                最初的構想是， 一個透過 localstorage 儲存的 SPA 。將資料透過 json 格式儲存，USer可以自行上傳下載自己的紀錄做管理。而下載下來的資料也可直觀的閱讀理解，更甚是修改。
+而我將頁面分為任務(專門管理任務項目)、規劃(負責排程)、計時(當日有排程時，負責計時的頁面)三個主要畫面組成。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 如果參與這個訓練，會怎麼安排學習時間？ -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="03" class="text-title text-4xl font-medium ">
+                        如果參與這個訓練，會怎麼安排學習時間？
+                    </h1>
+                </div>  
+                <div class="my-4">
+                    <h2 id="03-1" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        規劃表
+                    </h2>
+                    <div class="p-1 ">
+                        <table class="border-collapse border table-auto mt-3 ">
+                            <thead>
+                                <tr>
+                                    <th class="border p-1 w-1/9 ">星期 \ 時段</th>
+                                    <th class="border p-1 w-2/9 ">上午(8-12)</th>
+                                    <th class="border p-1 w-2/9 ">中午(13-18)</th>
+                                    <th class="border p-1 w-2/9 ">晚上(19-24)</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50/50 " >
+                                    <th class="border p-3 ">星期一</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">任務會議</span>
+                                    </td>
+                                    <td class="border p-3 text-center" colspan="2">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-3 ">星期二</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-sky-700 bg-sky-200 border border-sky-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">自己的專案</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">目前工作</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-3 ">星期三</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">目前工作</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                    </td>
+                                    <td class="border p-3 text-center ">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">進度報告</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-3">星期四</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-sky-700 bg-sky-200 border border-sky-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">自己的專案</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">目前工作</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-3">星期五</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">目前工作</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">進度報告</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">目前工作</span>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-3">星期六</th>
+                                    <td class="border p-3 text-center" colspan="3">
+                                        <span class="text-rose-700 bg-rose-200 border border-rose-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">休息</span>
+                                    </td>
+                                </tr>     
+                                <tr class="hover:bg-gray-50/50" >
+                                    <th class="border p-1">星期日</th>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">執行訓練任務</span>
+                                        <span class="text-indigo-700 bg-indigo-200 border border-indigo-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">進度報告</span>
+                                    </td>
+                                    <td class="border p-3 text-center">
+                                        <span class="text-sky-700 bg-sky-200 border border-sky-300 border-2 p-1 rounded-bl-md rounded-tr-md w-fit">自己的專案</span>
+                                    </td>
+                                </tr>                                       
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <h2 id="03-2"  class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        每周的規劃
+                    </h2>
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                        我配合目前工作所粗略安排的時間表，我希望在執行訓練的任務同時，還能完善上面兩自己的專案與學習新知。
+                        </p>
+                    </div>
+                    <div class="p-1 flex flex-col gap-y-2">
+                        <h3 class="text-sec text-xl font-bold">
+                            規劃說明：
+                        </h3>
+                        <h3 class="text-content text-lg font-bold">
+                            工作：
+                        </h3>
+                        <p class="text-content indent-8 break-normal">
+                            我每周的二四晚間、以及週五早晚、都需要工作。所以我必須首先將這些時間排開。
+                        </p>
+                        <h3 class="text-content text-lg font-bold">
+                            執行訓練任務：
+                        </h3>
+                        <p class="text-content indent-8 break-normal">
+                            wehelp所提供的任務，任務中所有的規劃、安排、寫code等等都會在這一安排中執行。每一次的安排結束後，簡易留下本次開發的進度紀錄。
+                        </p>
+                        <h3 class="text-content text-lg font-bold">
+                            任務會議：
+                        </h3>
+                        <p class="text-content indent-8 break-normal">
+                            說明會當中所安排的周一早上10點的會議。會議前我會確認本次任務的內容是否完善。
+                        </p>
+                        <h3 class="text-content text-lg font-bold">
+                            進度報告：
+                        </h3>
+                        <p class="text-content indent-8 break-normal">
+                            會統整到上一次紀錄間執行訓練任務時遇到的任務瓶頸、解決方法等等。基本上最好是每周撰寫三次，但視專案情況調整為兩次，最後會在周日早上的撰寫報告時整理記錄。
+                        </p>
+                        <h3 class="text-content text-lg font-bold">
+                            自己的專案：
+                        </h3>
+                        <p class="text-content indent-8 break-normal">
+                            除去上面兩個內容，有機會會去嘗試新的事項。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        <!-- 請簡述對於軟體工程的領域偏好和職涯想像。 -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div id="04" class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-accent w-fit">
+                    <h1 class="text-title text-4xl font-medium ">
+                        請簡述對於軟體工程的領域偏好和職涯想像
+                    </h1>
+                </div>
+
+                <div class="my-4">
+                    <h2 id="04-1" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        領域偏好
+                    </h2>
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                        如果單論喜好，我個人會偏向傳統的前後端工作，我喜歡規劃UI、架構、schema的感覺。但是在我個人的對AI工具引響軟體業想像下，這種類型的工作可能就只能成為進入軟體工作的入門，待不長。如果想要穩定之計，對我來說可能會偏向雲端、DevOps這種與雲服務打交道的的位置會比較穩固。雖然需要學習的工具很多、但也是因AI模型在學習這之間的關係比較困難。如果要說最好的位置，可能會偏向PM之類的位置。但那也會是入職後很久之後的事情了。
+                        </p>
+                    </div>
+                </div>
+                <div class="my-4">
+                    <h2 id="04-2" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                       職涯想像
+                    </h2>
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                        我將職涯分成短期與長期來看，以五年作為分界。
+                        </p>
+                        <p class="text-content indent-8 break-normal">短期來看，我會將頭一年視為學習階段。以我個人目前工作的感受，一項新的工作會需要很長的時間去熟悉。更何況加入新的公司、新的環境。剛入職的一到兩年也只能視為菜鳥的階段，我必須去盡全力地去跟上公司的腳步。比起學習新的東西，會更像是跟上公司的腳步。
+而後面的二到五年，直到我熟悉工作的流程，才有可能像是正式的軟體工程師達成目前職位的要求。這時候才有心力思考該怎麼補齊自己的技能、配合頭一年的工作經歷計劃下一步該怎麼走。</p>
+                        <p class="text-content indent-8 break-normal">長期養成來看，對於AI對軟體業的衝擊。編程方面，我會想要自己的能力超越AI編程的能力。但這不代表我不使用AI來節省時間。我所希望的是將AI編程提供的解方與實際工作分開。減少AI的使用率。畢竟如果能將項目梳理好，我想自己操作所花的時間，是不會閱讀、整理AI所生的程式碼花的時間還要長。而在職涯發展，我個人會偏好混合型的職位，除了編程以外，軟體開發更多的是事前的規劃與事後的部署、維運等等。如果我在業界有足夠的能力，我想往管理類型的職位是不可阻擋的。</p>
+                    </div>
+                </div>
+            </div>
+        <!-- 請描述一件產生明顯負面情緒的經歷，如何處理該情緒？ -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="05" class="text-title text-4xl font-medium ">
+                        請描述一件產生明顯負面情緒的經歷，如何處理該情緒？
+                    </h1>
+                </div>
+
+                <div class="my-4">
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                            我在撰寫我的blog時其實開發時間被我脫得相當的長。大概去年年底拖到了今年四月底我才暫時的告一段落。當然這過程是走走停停。甚至我會忘記裏頭的自訂類型、func怎麼寫，更甚是忘記框架的hook。而卡到時可能一卡就是一兩周，最後丟給claude去處理。
+對於自己的執行力低下、怠惰或者是剛開發所以能力不足整件事其實都很痛苦，原本預期的進度可能整間忙下來只能完成一小部分，更多的時間被分心到其他地方。你沒辦法責怪別人、看到自己寫的爛東西還是只能繼續用不能改，最後完成了一小部分也只能安慰自己第一次做的很棒了。在獨自開發中超難過的。
+                        </p>
+                        <p class="text-content indent-8 break-normal">
+處理這種痛苦情緒最好的方法只能離開去做別的事。去畫畫、打遊戲、看書、散步，更甚至是回目前的工作幫忙。能盡快脫離當下的情緒、趕快放空是最好的。通常脫離狀態忘記細節後，大部分回頭看到自己做出來的一團亂都沒當初想的那麼糟。接著從最簡單的狀態下手，又能慢慢回到開發專案的狀態了。對我來說，卡住或者倦怠的痛苦，我想更多的是情緒上的。只要不再那麼專注在小細節、放遠看到自己的作品。通常會舒服很多。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <!-- 關於這份申請網頁，分享一個開發時的技術心得。 -->
+         <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="06" class="text-title text-4xl font-medium ">
+                        關於這份申請網頁，分享一個開發時的技術心得。
+                    </h1>
+                </div>
+                <div class="my-4">
+                    <div class="p-1">
+                        <div class="p-1 ">
+                            <p class="text-content indent-8 break-normal m-3">
+                            這是我少數會自己用 Tailwind 手刻介面的時刻。平時大多數我都是框架 + shadcn 或者是 daisyUI 這種預設的UI包修改。在這段期間當然遇到了很多超出平時使用UI會遇到的問題。間接地加深我對 TailWind 的印象。
+                            </p>
+                            <ul class="list-disc list-inside text-content space-y-2">
+                                <li>Tailwind 的核心重點在 css 與 html 解偶。也就是說決定使用 tailwind 後，代表標籤預設的樣式都會消失。 h1、h3 、或者是 table家族的樣式都會沒有效果。你都必自行添加class。</li>
+                                <li>Tailwind 的class 除去特定內容。基本上調整字體大小、長寬等等在任何標籤都會有效果。但也會有td中套用 flex 會導致 table 下的效果消失，導致出現兩層border。 </li>
+                                <li>Tailwind 如果使用CDN掛載。&lt;style type="text/tailwindcss"&gt; 這一標籤會因為解析器的原因，無法用@import的方法掛載其他css內容(比如說字體)，必須使用 &lt;style type="text/tailwindcss"&gt;標籤仔入其他CDN才行</li>
+                                <li>如果使用框架寫(react、vue...)撰寫，基本上可以省去大半檢查標籤時間。並且每個卡片、元素都可以使用同一 compoment 統一管理變更。雖然殺雞焉用牛刀、但開發體驗會舒服很多。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 如何看待人工智慧的發展對軟體工程師的影響？ -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="07" class="text-title text-4xl font-medium ">
+                        如何看待人工智慧的發展對軟體工程師的影響？
+                    </h1>
+                </div>
+                <div class="my-4">
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                         從時間(近期到未來)以及與人相關的三個面向(職業、技術、產品)角度來分析，我的想法如下。
+                        </p>
+                    </div>
+                    <div class="p-1">
+                        <h2 id="07-1" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                            職業範疇
+                        </h2>
+                        <div class="p-1 ">
+                            <p class="text-content indent-8 break-normal">
+                            不論當下與未來，基礎的前端後端會逐漸消失。接著是維運人員、最後才可能是PM等等職業。
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            目前雖然能依舊看到有招聘前後端的人員，但我想未來的工作會逐漸地變成維護為主，開發為輔。維護目前現行、或者既存古老的系統。軟體工程師變成AI的責任承擔者，成為"因為能閱讀code，所以需要承擔"的人。
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            未來網頁、後端可能會變得免洗。當生成的成本低於維護，便沒有必要去花費那樣的成本。並且有可能因應潮流，伺服器主機會變因為現行設備的紅利，古老的自行架設伺服器成為小型專案的主流。透過自己的agent管理傳送過來的資料與伺服器自行運營。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-1">
+                        <h2 id="07-2" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                            技術範疇
+                        </h2>
+                        <div class="p-1 ">
+                            <p class="text-content indent-8 break-normal">
+                            在工作上只要有責任、需要人類讀懂程式邏輯。軟體工程人員就不會消失。
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            任何專案必然會是由人類提出專案，梳理完需求後交給工程師開發，部署。當然不可能把功能一項一項的講解給需求方聽。但是組內溝通、人類間的溝通勢必會需要文字去講述程式運作的邏輯，就像職業所說的責任承擔。即使是照著固定程式跑的CNC加工。也還是需要人員照顧。既然會有責任、就會有人需要理解。如果軟體工程還是要存在著程式語言這一層媒介。從技術角度來看，軟體工程師永遠有存在的必要
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            未來如果都是由人工智慧代行。那可能不會有"人類能讀懂"的程式碼。畢竟我們根本不用在乎技術什麼的。但也同時那程式對人類的價值極低。會因為未知的邏輯而缺乏可信的價值。市場接受度自然會低下。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-1">
+                        <h2 id="07-3" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                        產品範疇
+                        </h2>
+                        <div class="p-1 ">
+                            <p class="text-content indent-8 break-normal">
+                            產品由需求來看，除非人工智慧會殺死人的慾望，否則軟體還是會有存在的必要。人還是會想創作、娛樂、與人連結、學習......。當人們想做某件事，那便會還是想要介面，既然如此，軟體還是會存在。
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            我認為現在透過提示詞生成的圖片、影片、程式或者其他任何的內容。都只是現在人因為沒有時間去投入所以產出的替代品。當然節省成本是真的，但我想節省下的成本應該會讓人更願意花時間在其他事情上。
+                            </p>
+                            <p class="text-content indent-8 break-normal">
+                            未來當然會大量的出現像是Humane AI Pin、Rabbit R1或者是googlebook這種試圖用AI替代掉傳統功能的裝置。屆時軟硬體都會成為AI服務的工具。但不論手機、軟體的發展。最終都只會是人類需求的結果，既然是各式各樣的人類。那我想軟體產品也不會單純的被AI替代。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-1">
+                        <h2 id="07-4" class="text-content text-2xl font-bold pr-6 w-fit mb-2 border-b-3 border-pri rounded-br-xl">
+                            總結
+                        </h2>
+                        <div class="p-1 ">
+                            <p class="text-content indent-8 break-normal">
+                            個人認為，即使人工智慧未來會是穩健的發展，但也會迫於人的需求、操作性、資訊產品普及性等等問題。軟體依舊會存在。只不過軟體工程這件事會逐漸地減少coding這件事是十分確定的。與其說悲觀或者樂觀，更像是電視打破了電影、接著影音平台打破了電視。這種循環，只要軟體是"邏輯與記憶的低成本代行"這件事沒變，我相未來軟體業還是會存在。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- 其他想要對我們說的事情？ -->
+            <div class="bg-lightback w-10/12 h-fit rounded-2xl p-6 shadow-lg">
+                <div class="mb-3 py-1 pr-10 rounded-br-xl border-b-4 border-content w-fit">
+                    <h1 id="08" class="text-title text-4xl font-medium ">
+                        其他想要對我們說的事情？
+                    </h1>
+                </div>
+
+                <div class="my-4">
+                    <div class="p-1 ">
+                        <p class="text-content indent-8 break-normal">
+                            說來奇怪，我有很多的技術，資料。或者底層的計算機概論很多都是AI模型給我、或者自學來的。資策會的課程對我來說基礎到懷疑、網路上的資源又難以看懂。正是因為自學、所以我想再試試看與他人溝通，了解自己的能力在那裡、如何面試等等。我還需要學習的東西還很多，跨入一個新職業很困難、更何況是一個非本科系的。所以我才更想踏穩腳步。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div  class=" w-2/12 mx-6 ">
+            <!-- menu -->
+             <div id="dashBoard" class="absolute w-2/12 h-full">
+                
+             </div>
+        </div>
+        <div id="game-overlay" class="hidden absolute inset-0 z-100 flex flex-col">
+        </div>
+    </div>
+  </body>
+</html>
