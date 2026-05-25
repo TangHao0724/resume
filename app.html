@@ -33,7 +33,7 @@
         }
     </script>
     <script>
-document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function() {
     const dashBoard = document.getElementById('dashBoard');
 
     if (dashBoard) {
@@ -54,8 +54,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 );
                 
                 randBut.onclick = function() {
+                    switch (randBut.count){
+                        case 15:
+                            alert("毅力真棒！不過後面就沒有了。或說你不是開F12來看的吧？");
+                            break;
+                        case 10:
+                            alert("或許後面還有？")
+                            break;
+                        case 5:
+                            alert("如果是我早放棄了。")
+                            break;
+                        default:
+                            alert("？".repeat(randBut.count));
+                    }
                     
-                    alert("？".repeat(randBut.count));
                     this.remove();
                     createGameButton(randBut.count + 1); 
                 };
